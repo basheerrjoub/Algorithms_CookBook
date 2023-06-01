@@ -1,0 +1,79 @@
+
+abstract:
+The abstract keyword is used to declare a class or method that cannot be instantiated or fully implemented, respectively. An abstract class can have both abstract and non-abstract methods. Abstract methods don't have a body and need to be implemented by any concrete (non-abstract) subclass.
+
+java
+Copy code
+public abstract class Animal {
+    public abstract void makeSound();
+}
+final:
+The final keyword can be used with classes, methods, and variables. It signifies that something cannot be changed:
+
+Final class: A final class cannot be extended (inherited) by other classes.
+Final method: A final method cannot be overridden by subclasses.
+Final variable: A final variable can be assigned only once, making it a constant.
+java
+Copy code
+public final class ImmutableClass {
+    public final int someConstant = 42;
+    public final void someMethod() {
+        // ...
+    }
+}
+static:
+The static keyword is used to define class-level variables and methods. Static members belong to the class itself rather than to any particular instance of the class.
+
+Static variable: A static variable is shared by all instances of the class.
+Static method: A static method can be called without creating an instance of the class and can only access static members.
+java
+Copy code
+public class MyClass {
+    public static int staticVariable = 0;
+    public static void staticMethod() {
+        // ...
+    }
+}
+strictfp:
+The strictfp keyword is used to restrict floating-point calculations to ensure consistency across different platforms. When a class or method is declared strictfp, all the floating-point calculations within that scope follow the IEEE 754 standard strictly, which might result in a slight performance trade-off.
+
+java
+Copy code
+public strictfp class StrictFloatingPoint {
+    public strictfp double calculate() {
+        // ...
+    }
+}
+synchronized:
+The synchronized keyword is used to ensure that only one thread can access a method or block of code at a time. It helps achieve thread-safety by preventing race conditions in multi-threaded applications.
+
+java
+Copy code
+public synchronized void myMethod() {
+    // ...
+}
+transient:
+The transient keyword is used with instance variables to indicate that they should not be serialized when an object is serialized. This is useful for fields that are derived or temporary and do not need to be persisted.
+
+java
+Copy code
+public class MyClass implements Serializable {
+    private transient int tempValue;
+}
+volatile:
+The volatile keyword is used with variables to indicate that their values might be modified by multiple threads simultaneously. It ensures that the most up-to-date value is always read and written, as changes made by one thread will be immediately visible to other threads.
+
+java
+Copy code
+private volatile int sharedVariable;
+native:
+The native keyword is used with methods to indicate that they are implemented in native code (usually C or C++) rather than Java. Native methods are useful for interacting with low-level system APIs or for performance-critical tasks.
+
+java
+Copy code
+public class NativeDemo {
+    public native void nativeMethod();
+    static {
+        System.loadLibrary("nativeLibrary");
+    }
+}
